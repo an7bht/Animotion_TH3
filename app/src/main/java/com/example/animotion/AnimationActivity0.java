@@ -17,7 +17,7 @@ public class AnimationActivity0 extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(AnimationActivity0.this, AnimotionActivity1.class));
-
+                    overridePendingTransition(R.anim.enter_x, R.anim.exit_x);
                 }
             });
     }

@@ -16,6 +16,7 @@
         app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:transitionName="fade"
         app:srcCompat="@drawable/hoa1" />
 
     <ImageView
@@ -38,6 +39,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        android:transitionName="fade"
         app:srcCompat="@drawable/hoa7" />
 
     <ImageView

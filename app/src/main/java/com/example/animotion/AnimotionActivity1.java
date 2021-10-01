@@ -16,6 +16,7 @@ public class AnimotionActivity1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animotion1);
+        overridePendingTransition(R.anim.enter, R.anim.exit);
         Fade fade = new Fade();
         View decor = getWindow().getDecorView();
 

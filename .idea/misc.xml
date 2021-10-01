@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/drawable/bogoc.xml" value="0.2203125" />
         <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/layout/activity_animation0.xml" value="0.25" />
         <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/layout/activity_animotion1.xml" value="0.25" />
         <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/layout/activity_motion3.xml" value="0.25" />
+        <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/layout/activity_recycler_view.xml" value="0.20416666666666666" />
         <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/layout/activity_share_element2.xml" value="0.25" />
         <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/layout/activity_share_element3.xml" value="0.25" />
+        <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/layout/item_recycleview.xml" value="0.25" />
+        <entry key="..\:/DiDongNC/Animotion_TH3/app/src/main/res/layout/item_recycleviewview.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
