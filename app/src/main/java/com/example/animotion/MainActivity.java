@@ -2,19 +2,22 @@ package com.example.animotion;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.transition.Fade;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnClickListener{
 
     private RecyclerView rcvNhac;
     private NhacAdapter nhacAdapter;
@@ -34,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         nhacs.add(new Nhac("Love Story","Taylor Swift",R.drawable.eclipse));
         nhacs.add(new Nhac("Love Story","Taylor Swift",R.drawable.eclipse));
         nhacs.add(new Nhac("Love Story","Taylor Swift",R.drawable.eclipse));
-        nhacAdapter= new NhacAdapter(this, nhacs);
+
+        nhacAdapter= new NhacAdapter(this, nhacs,this);
         rcvNhac.setAdapter(nhacAdapter);
         rcvNhac.setLayoutManager(new LinearLayoutManager(this));
 
@@ -42,21 +46,20 @@ public class MainActivity extends AppCompatActivity {
         rcvNhac.setLayoutManager(linearLayoutManager);
     }
 
-    public void itemClick(Nhac nhac, ImageView img) {
-        Fade fade = new Fade();
-        View decor = getWindow().getDecorView();
-//        // we are adding fade animation for enter transition.
-        getWindow().setEnterTransition(fade);
-//
-//        // we are also setting fade animation for exit transition.
-        getWindow().setExitTransition(fade);
-//        // initializing our imageview.
-        Intent intent = new Intent(MainActivity.this,Motion3Activity.class);
+    @Override
+    public void itemClick(int pos, ImageView imgTayLoy, TextView tvTayLoy, TextView tvLove) {
+        Intent intent = new Intent(MainActivity.this, Motion3Activity.class);
+        intent.putExtra("nhac",nhacs.get(pos));
 
-        intent.putExtra("key1",nhacs);
-        ActivityOptionsCompat options =  ActivityOptionsCompat.makeSceneTransitionAnimation(
-                MainActivity.this, img,
-                ViewCompat.getTransitionName(img));
-        startActivity(intent, options.toBundle());
+        Pair<View, String> p1 = Pair.create((View)imgTayLoy,"img");
+        Pair<View, String> p2 = Pair.create((View)tvTayLoy,"artist");
+        Pair<View, String> p3 = Pair.create((View)tvLove,"song");
+
+        ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this,p1,p2,p3);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+            startActivity(intent, optionsCompat.toBundle());
+        }else
+            startActivity(intent);
+
     }
-}
+    }

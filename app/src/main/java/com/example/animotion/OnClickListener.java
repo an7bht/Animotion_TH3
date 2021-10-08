@@ -1,8 +1,9 @@
 package com.example.animotion;
 
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public interface OnClickListener {
-    void itemClick(Nhac chair, ImageView img);
+    void itemClick(int pos, ImageView imgTayLoy, TextView tvTayLoy, TextView tvLove);
 }
 

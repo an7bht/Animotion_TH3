@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.transition.Fade;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Motion3Activity extends AppCompatActivity {
 
     ImageView imgTayloy;
+    TextView tvTayLoy, tvLove;
     Nhac nhac;
 
     @Override
@@ -18,17 +20,23 @@ public class Motion3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_motion3);
 
-        imgTayloy = findViewById(R.id.imgTayLoy);
-        Intent intent = getIntent();
-        if (intent != null) {
-            nhac = (Nhac) intent.getSerializableExtra("key1");
-            imgTayloy.setImageResource(nhac.getImgtayloy());
-            Fade fade = new Fade();
-            View decor = getWindow().getDecorView();
+        imgTayloy = findViewById(R.id.imageView3);
+        tvTayLoy = findViewById(R.id.textView16);
+        tvLove = findViewById(R.id.textView14);
+        Nhac item =(Nhac) getIntent().getExtras().getSerializable("nhac");
 
-            //below methods are used for adding enter and exit transition.
-            getWindow().setEnterTransition(fade);
-            getWindow().setExitTransition(fade);
-        }
+        imgTayloy.setImageResource(item.getImgtayloy());
+        tvTayLoy.setText(item.getTayloy());
+        tvLove.setText(item.getLove());
+//        Intent intent = getIntent();
+//        if (intent != null) {
+//            nhac = (Nhac) intent.getSerializableExtra("key1");
+//            imgTayloy.setImageResource(nhac.getImgtayloy());
+//            Fade fade = new Fade();
+//            View decor = getWindow().getDecorView();
+//            //below methods are used for adding enter and exit transition.
+//            getWindow().setEnterTransition(fade);
+//            getWindow().setExitTransition(fade);
+//        }
     }
 }

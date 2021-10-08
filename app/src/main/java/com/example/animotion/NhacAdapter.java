@@ -19,11 +19,15 @@ public class NhacAdapter extends RecyclerView.Adapter<NhacAdapter.ThingViewHolde
     private LayoutInflater layoutInflater;
     private ArrayList<Nhac> nhacs;
 
-    public NhacAdapter(Context context, ArrayList<Nhac> nhacs) {
+    public NhacAdapter(Context context, ArrayList<Nhac> nhacs, OnClickListener listener) {
         layoutInflater= LayoutInflater.from(context);
         this.nhacs = nhacs;
+        this.listener =listener;
     }
 
+    public NhacAdapter(ArrayList<Nhac>arrayList){
+        this.nhacs = arrayList;
+    }
     @NonNull
     @Override
     public NhacAdapter.ThingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,7 +39,7 @@ public class NhacAdapter extends RecyclerView.Adapter<NhacAdapter.ThingViewHolde
     public void onBindViewHolder(@NonNull NhacAdapter.ThingViewHolder holder, int position) {
 
         Nhac nhac = nhacs.get(position);
-
+        holder.nhac =nhacs.get(position);
         holder.tvLove.setText(nhac.getLove());
         holder.tvTayLoy.setText(nhac.getTayloy());
         //holder.viewReCy.setId(recyclerViewActivity.getViewrecycle());
@@ -43,13 +47,7 @@ public class NhacAdapter extends RecyclerView.Adapter<NhacAdapter.ThingViewHolde
 
         holder.nhac=nhacs.get(position);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                listener.itemClick(nhac, holder.imgTayLoy);
-            }
-        });
     }
 
     @Override
@@ -72,9 +70,15 @@ public class NhacAdapter extends RecyclerView.Adapter<NhacAdapter.ThingViewHolde
             //viewReCy = itemView.findViewById(R.id.viewRecycle);
             imgTayLoy= itemView.findViewById(R.id.imgTayLoy);
 
-            //this.nhacAdapter=adapter;
-        }
+            this.nhacAdapter=adapter;
+         itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                listener.itemClick(getAdapterPosition(),imgTayLoy, tvTayLoy,tvLove);
+            }
+        });
 
+    }
     }
 }

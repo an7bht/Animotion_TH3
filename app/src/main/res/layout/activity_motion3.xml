@@ -164,4 +164,15 @@
         app:srcCompat="@drawable/text"
         tools:layout_editor_absoluteX="134dp" />
 
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="TayLoy Swift"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="610dp" />
+
 </androidx.constraintlayout.motion.widget.MotionLayout>
